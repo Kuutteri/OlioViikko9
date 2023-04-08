@@ -1,26 +1,25 @@
-package com.example.user;
+package com.example.lutemoneja;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-public class ListStudentsActivity extends AppCompatActivity {
-    private UserStorage userStorage;
+public class ListLutemonsActivity extends AppCompatActivity {
+    private Storage storage;
     private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_students);
+        setContentView(R.layout.activity_list_lutemon);
 
-        userStorage = UserStorage.getInstance();
+        storage = Storage.getInstance();
         recyclerView = findViewById(R.id.rvUserList);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new UserListAdapter(getApplicationContext(), userStorage.getUsers()));
+        recyclerView.setAdapter(new LutemonListAdapter(getApplicationContext(), storage.getLutemons()));
     }
+
 }
